@@ -1,0 +1,305 @@
+<%- include("../partials/header", { title: "Master's Universities" }) %>
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Master's Universities</h1>
+
+        <p>
+            Manage and track master's university opportunities.
+        </p>
+
+    </div>
+
+    <a
+        href="/universities/add"
+        class="btn btn-primary"
+    >
+        + Add University
+    </a>
+
+</div>
+
+
+<div class="search-bar">
+
+    <form action="/universities" method="GET">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search universities..."
+            value="<%= search || '' %>"
+        >
+
+        <select name="country">
+
+            <option value="">
+                All Countries
+            </option>
+
+            <% countries.forEach(item => { %>
+
+                <option
+                    value="<%= item %>"
+                    <%= country === item ? "selected" : "" %>
+                >
+                    <%= item %>
+                </option>
+
+            <% }) %>
+
+        </select>
+
+
+        <select name="status">
+
+            <option value="">
+                All Status
+            </option>
+
+            <option
+                value="Not Applied"
+                <%= status === "Not Applied" ? "selected" : "" %>
+            >
+                Not Applied
+            </option>
+
+            <option
+                value="Applied"
+                <%= status === "Applied" ? "selected" : "" %>
+            >
+                Applied
+            </option>
+
+        </select>
+
+
+        <select name="deadline">
+
+            <option value="">
+                All Deadlines
+            </option>
+
+            <option
+                value="open"
+                <%= deadline === "open" ? "selected" : "" %>
+            >
+                Open
+            </option>
+
+            <option
+                value="closingSoon"
+                <%= deadline === "closingSoon" ? "selected" : "" %>
+            >
+                Closing Soon
+            </option>
+
+            <option
+                value="expired"
+                <%= deadline === "expired" ? "selected" : "" %>
+            >
+                Expired
+            </option>
+
+        </select>
+
+
+        <select name="sort">
+
+            <option
+                value="earliest"
+                <%= sort === "earliest" ? "selected" : "" %>
+            >
+                Deadline: Earliest First
+            </option>
+
+            <option
+                value="latest"
+                <%= sort === "latest" ? "selected" : "" %>
+            >
+                Deadline: Latest First
+            </option>
+
+        </select>
+
+
+        <button
+            type="submit"
+            class="btn btn-primary"
+        >
+            Search
+        </button>
+
+    </form>
+
+</div>
+
+
+<div class="content-card">
+
+    <% if (universities.length === 0) { %>
+
+        <div class="empty-state">
+
+            <h2>No universities yet</h2>
+
+            <p>
+                Start by adding your first master's university.
+            </p>
+
+            <a
+                href="/universities/add"
+                class="btn btn-primary"
+            >
+                Add University
+            </a>
+
+        </div>
+
+    <% } else { %>
+
+        <div class="internship-list">
+
+            <% universities.forEach(university => { %>
+
+                <div class="internship-card">
+
+                    <div>
+
+                        <h2>
+                            <%= university.universityName %>
+                        </h2>
+
+                        <p class="company">
+                            <%= university.programName %>
+                        </p>
+
+                        <p>
+                            🌍 <%= university.country %>
+                            <% if (university.city) { %>
+                                — <%= university.city %>
+                            <% } %>
+                        </p>
+
+                        <p>
+                            🎓 <%= university.degree || "Not specified" %>
+                        </p>
+
+                    </div>
+
+
+                    <div class="internship-info">
+
+                        <p>
+
+                            <strong>Deadline:</strong>
+
+                            <% if (university.closingDate) { %>
+
+                                <%= university.closingDate.toDateString() %>
+
+                                <%
+                                    const today = new Date();
+
+                                    today.setHours(0, 0, 0, 0);
+
+                                    const deadlineDate =
+                                        new Date(university.closingDate);
+
+                                    deadlineDate.setHours(0, 0, 0, 0);
+
+                                    const difference =
+                                        Math.ceil(
+                                            (deadlineDate - today) /
+                                            (1000 * 60 * 60 * 24)
+                                        );
+                                %>
+
+                                <% if (difference < 0) { %>
+
+                                    <span class="deadline-badge expired">
+                                        Expired
+                                    </span>
+
+                                <% } else if (difference <= 7) { %>
+
+                                    <span class="deadline-badge soon">
+                                        Closing Soon
+                                    </span>
+
+                                <% } else { %>
+
+                                    <span class="deadline-badge open">
+                                        Open
+                                    </span>
+
+                                <% } %>
+
+                            <% } else { %>
+
+                                Not specified
+
+                            <% } %>
+
+                        </p>
+
+
+                        <p>
+                            <strong>Tuition:</strong>
+                            <%= university.tuitionFee || "Not specified" %>
+                        </p>
+
+
+                        <p>
+
+                            <strong>Status:</strong>
+
+                            <span class="status-badge">
+                                <%= university.status %>
+                            </span>
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="card-actions">
+
+                        <a
+                            href="/universities/edit/<%= university._id %>"
+                            class="btn btn-secondary"
+                        >
+                            Edit
+                        </a>
+
+                        <form
+                            action="/universities/delete/<%= university._id %>"
+                            method="POST"
+                        >
+
+                            <button
+                                type="submit"
+                                class="btn btn-danger"
+                                onclick="return confirm('Are you sure you want to delete this university?')"
+                            >
+                                Delete
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
+    <% } %>
+
+</div>
+
+
+<%- include("../partials/footer") %>

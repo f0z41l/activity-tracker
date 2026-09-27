@@ -1,0 +1,232 @@
+<%- include("../partials/header", { title: "Edit Internship" }) %>
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Edit Internship</h1>
+
+        <p>
+            Update the details of this internship opportunity.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="content-card">
+
+    <form
+        action="/internships/edit/<%= internship._id %>"
+        method="POST"
+        class="internship-form"
+    >
+
+        <!-- Company -->
+
+        <div class="form-group">
+
+            <label for="company">
+                Company
+            </label>
+
+            <input
+                type="text"
+                id="company"
+                name="company"
+                value="<%= internship.company %>"
+                required
+            >
+
+        </div>
+
+
+        <!-- Position -->
+
+        <div class="form-group">
+
+            <label for="position">
+                Position
+            </label>
+
+            <input
+                type="text"
+                id="position"
+                name="position"
+                value="<%= internship.position %>"
+                required
+            >
+
+        </div>
+
+
+        <!-- Country -->
+
+        <div class="form-group">
+
+            <label for="country">
+                Country
+            </label>
+
+            <input
+                type="text"
+                id="country"
+                name="country"
+                value="<%= internship.country %>"
+                required
+            >
+
+        </div>
+
+
+        <!-- Dates -->
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="openingDate">
+                    Opening Date
+                </label>
+
+                <input
+                    type="date"
+                    id="openingDate"
+                    name="openingDate"
+                    value="<%= internship.openingDate ? internship.openingDate.toISOString().split('T')[0] : '' %>"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="closingDate">
+                    Closing Date
+                </label>
+
+                <input
+                    type="date"
+                    id="closingDate"
+                    name="closingDate"
+                    value="<%= internship.closingDate ? internship.closingDate.toISOString().split('T')[0] : '' %>"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- Eligibility -->
+
+        <div class="form-group">
+
+            <label for="eligibility">
+                Eligibility
+            </label>
+
+            <textarea
+                id="eligibility"
+                name="eligibility"
+                rows="3"
+            ><%= internship.eligibility || '' %></textarea>
+
+        </div>
+
+
+        <!-- Status -->
+
+        <div class="form-group">
+
+            <label for="status">
+                Status
+            </label>
+
+            <select
+                id="status"
+                name="status"
+            >
+
+                <option
+                    value="Not Applied"
+                    <%= internship.status === "Not Applied" ? "selected" : "" %>
+                >
+                    Not Applied
+                </option>
+
+                <option
+                    value="Applied"
+                    <%= internship.status === "Applied" ? "selected" : "" %>
+                >
+                    Applied
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Link -->
+
+        <div class="form-group">
+
+            <label for="link">
+                Application Link
+            </label>
+
+            <input
+                type="url"
+                id="link"
+                name="link"
+                value="<%= internship.link || '' %>"
+                placeholder="https://example.com"
+            >
+
+        </div>
+
+
+        <!-- Remarks -->
+
+        <div class="form-group">
+
+            <label for="remarks">
+                Remarks
+            </label>
+
+            <textarea
+                id="remarks"
+                name="remarks"
+                rows="4"
+                placeholder="Any additional information..."
+            ><%= internship.remarks || '' %></textarea>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="form-actions">
+
+            <a
+                href="/internships"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Update Internship
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+<%- include("../partials/footer") %>

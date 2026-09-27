@@ -1,0 +1,222 @@
+<%- include("../partials/header", { title: "Add Scholarship" }) %>
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Add Scholarship</h1>
+
+        <p>
+            Add a new scholarship opportunity to your tracker.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="content-card">
+
+    <form
+        action="/scholarships/add"
+        method="POST"
+        class="internship-form"
+    >
+
+        <div class="form-group">
+
+            <label for="name">
+                Scholarship Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="e.g. DAAD Scholarship"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="provider">
+                Provider
+            </label>
+
+            <input
+                type="text"
+                id="provider"
+                name="provider"
+                placeholder="e.g. DAAD"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="country">
+                Country
+            </label>
+
+            <input
+                type="text"
+                id="country"
+                name="country"
+                placeholder="e.g. Germany"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="openingDate">
+                    Opening Date
+                </label>
+
+                <input
+                    type="date"
+                    id="openingDate"
+                    name="openingDate"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="closingDate">
+                    Closing Date
+                </label>
+
+                <input
+                    type="date"
+                    id="closingDate"
+                    name="closingDate"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="eligibility">
+                Eligibility
+            </label>
+
+            <textarea
+                id="eligibility"
+                name="eligibility"
+                rows="3"
+                placeholder="e.g. International students, Bachelor's graduates"
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="funding">
+                Funding
+            </label>
+
+            <input
+                type="text"
+                id="funding"
+                name="funding"
+                placeholder="e.g. Full tuition + monthly stipend"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="status">
+                Status
+            </label>
+
+            <select
+                id="status"
+                name="status"
+            >
+
+                <option value="Not Applied">
+                    Not Applied
+                </option>
+
+                <option value="Applied">
+                    Applied
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="link">
+                Application Link
+            </label>
+
+            <input
+                type="url"
+                id="link"
+                name="link"
+                placeholder="https://example.com"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="remarks">
+                Remarks
+            </label>
+
+            <textarea
+                id="remarks"
+                name="remarks"
+                rows="4"
+                placeholder="Any additional information..."
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <a
+                href="/scholarships"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Save Scholarship
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+<%- include("../partials/footer") %>

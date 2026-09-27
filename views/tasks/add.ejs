@@ -1,0 +1,173 @@
+<%- include("../partials/header", { title: "Add Task" }) %>
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Add Task</h1>
+
+        <p>
+            Create a new personal task.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="content-card">
+
+    <form
+        action="/tasks/add"
+        method="POST"
+        class="task-form"
+    >
+
+
+        <div class="form-group">
+
+            <label>
+                Task Title
+            </label>
+
+            <input
+                type="text"
+                name="title"
+                placeholder="Enter task title"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-row">
+
+
+            <div class="form-group">
+
+                <label>
+                    Due Date
+                </label>
+
+                <input
+                    type="date"
+                    name="dueDate"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Priority
+                </label>
+
+                <select name="priority">
+
+                    <option value="Low">
+                        Low
+                    </option>
+
+                    <option
+                        value="Medium"
+                        selected
+                    >
+                        Medium
+                    </option>
+
+                    <option value="High">
+                        High
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="form-row">
+
+
+            <div class="form-group">
+
+                <label>
+                    Category
+                </label>
+
+                <input
+                    type="text"
+                    name="category"
+                    placeholder="e.g. College, Career, Personal"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Status
+                </label>
+
+                <select name="status">
+
+                    <option
+                        value="Pending"
+                        selected
+                    >
+                        Pending
+                    </option>
+
+                    <option value="Completed">
+                        Completed
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Remarks
+            </label>
+
+            <textarea
+                name="remarks"
+                placeholder="Additional details..."
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <a
+                href="/tasks"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Add Task
+            </button>
+
+        </div>
+
+
+    </form>
+
+</div>
+
+<%- include("../partials/footer") %>

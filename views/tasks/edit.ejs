@@ -1,0 +1,182 @@
+<%- include("../partials/header", { title: "Edit Task" }) %>
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Edit Task</h1>
+
+        <p>
+            Update your task details.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="content-card">
+
+    <form
+        action="/tasks/edit/<%= task._id %>"
+        method="POST"
+        class="task-form"
+    >
+
+
+        <div class="form-group">
+
+            <label>
+                Task Title
+            </label>
+
+            <input
+                type="text"
+                name="title"
+                value="<%= task.title %>"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-row">
+
+
+            <div class="form-group">
+
+                <label>
+                    Due Date
+                </label>
+
+                <input
+                    type="date"
+                    name="dueDate"
+                    value="<%= task.dueDate ? new Date(task.dueDate).toISOString().split('T')[0] : '' %>"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Priority
+                </label>
+
+                <select name="priority">
+
+                    <option
+                        value="Low"
+                        <%= task.priority === "Low" ? "selected" : "" %>
+                    >
+                        Low
+                    </option>
+
+                    <option
+                        value="Medium"
+                        <%= task.priority === "Medium" ? "selected" : "" %>
+                    >
+                        Medium
+                    </option>
+
+                    <option
+                        value="High"
+                        <%= task.priority === "High" ? "selected" : "" %>
+                    >
+                        High
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="form-row">
+
+
+            <div class="form-group">
+
+                <label>
+                    Category
+                </label>
+
+                <input
+                    type="text"
+                    name="category"
+                    value="<%= task.category || '' %>"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Status
+                </label>
+
+                <select name="status">
+
+                    <option
+                        value="Pending"
+                        <%= task.status === "Pending" ? "selected" : "" %>
+                    >
+                        Pending
+                    </option>
+
+                    <option
+                        value="Completed"
+                        <%= task.status === "Completed" ? "selected" : "" %>
+                    >
+                        Completed
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Remarks
+            </label>
+
+            <textarea
+                name="remarks"
+            ><%= task.remarks || '' %></textarea>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <a
+                href="/tasks"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Save Changes
+            </button>
+
+        </div>
+
+
+    </form>
+
+</div>
+
+<%- include("../partials/footer") %>

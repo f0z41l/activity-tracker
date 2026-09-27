@@ -1,0 +1,224 @@
+<%- include("../partials/header", { title: "Add Internship" }) %>
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Add Internship</h1>
+
+        <p>
+            Add a new internship opportunity to your tracker.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="content-card">
+
+    <form
+        action="/internships/add"
+        method="POST"
+        class="internship-form"
+    >
+
+        <!-- Company -->
+
+        <div class="form-group">
+
+            <label for="company">
+                Company
+            </label>
+
+            <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="e.g. Google"
+                required
+            >
+
+        </div>
+
+
+        <!-- Position -->
+
+        <div class="form-group">
+
+            <label for="position">
+                Position
+            </label>
+
+            <input
+                type="text"
+                id="position"
+                name="position"
+                placeholder="e.g. Software Engineering Intern"
+                required
+            >
+
+        </div>
+
+
+        <!-- Country -->
+
+        <div class="form-group">
+
+            <label for="country">
+                Country
+            </label>
+
+            <input
+                type="text"
+                id="country"
+                name="country"
+                placeholder="e.g. Germany"
+                required
+            >
+
+        </div>
+
+
+        <!-- Dates -->
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="openingDate">
+                    Opening Date
+                </label>
+
+                <input
+                    type="date"
+                    id="openingDate"
+                    name="openingDate"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="closingDate">
+                    Closing Date
+                </label>
+
+                <input
+                    type="date"
+                    id="closingDate"
+                    name="closingDate"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- Eligibility -->
+
+        <div class="form-group">
+
+            <label for="eligibility">
+                Eligibility
+            </label>
+
+            <textarea
+                id="eligibility"
+                name="eligibility"
+                rows="3"
+                placeholder="e.g. Final year students, B.Tech CSE"
+            ></textarea>
+
+        </div>
+
+
+        <!-- Status -->
+
+        <div class="form-group">
+
+            <label for="status">
+                Status
+            </label>
+
+            <select
+                id="status"
+                name="status"
+            >
+
+                <option value="Not Applied">
+                    Not Applied
+                </option>
+
+                <option value="Applied">
+                    Applied
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Link -->
+
+        <div class="form-group">
+
+            <label for="link">
+                Application Link
+            </label>
+
+            <input
+                type="url"
+                id="link"
+                name="link"
+                placeholder="https://example.com"
+            >
+
+        </div>
+
+
+        <!-- Remarks -->
+
+        <div class="form-group">
+
+            <label for="remarks">
+                Remarks
+            </label>
+
+            <textarea
+                id="remarks"
+                name="remarks"
+                rows="4"
+                placeholder="Any additional information..."
+            ></textarea>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="form-actions">
+
+            <a
+                href="/internships"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Save Internship
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+<%- include("../partials/footer") %>

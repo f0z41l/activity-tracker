@@ -1,0 +1,310 @@
+<%- include("../partials/header", { title: "Edit Job" }) %>
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Edit Job</h1>
+
+        <p>
+            Update the details of this job opportunity.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="content-card">
+
+    <form
+        action="/jobs/edit/<%= job._id %>"
+        method="POST"
+        class="internship-form"
+    >
+
+        <div class="form-group">
+
+            <label for="company">
+                Company
+            </label>
+
+            <input
+                type="text"
+                id="company"
+                name="company"
+                value="<%= job.company %>"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="position">
+                Position
+            </label>
+
+            <input
+                type="text"
+                id="position"
+                name="position"
+                value="<%= job.position %>"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="country">
+                    Country
+                </label>
+
+                <input
+                    type="text"
+                    id="country"
+                    name="country"
+                    value="<%= job.country %>"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="city">
+                    City
+                </label>
+
+                <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    value="<%= job.city || '' %>"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="salary">
+                    Salary
+                </label>
+
+                <input
+                    type="text"
+                    id="salary"
+                    name="salary"
+                    value="<%= job.salary || '' %>"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="jobType">
+                    Job Type
+                </label>
+
+                <select
+                    id="jobType"
+                    name="jobType"
+                >
+
+                    <option
+                        value=""
+                        <%= !job.jobType ? "selected" : "" %>
+                    >
+                        Select job type
+                    </option>
+
+                    <option
+                        value="Full-time"
+                        <%= job.jobType === "Full-time" ? "selected" : "" %>
+                    >
+                        Full-time
+                    </option>
+
+                    <option
+                        value="Part-time"
+                        <%= job.jobType === "Part-time" ? "selected" : "" %>
+                    >
+                        Part-time
+                    </option>
+
+                    <option
+                        value="Contract"
+                        <%= job.jobType === "Contract" ? "selected" : "" %>
+                    >
+                        Contract
+                    </option>
+
+                    <option
+                        value="Remote"
+                        <%= job.jobType === "Remote" ? "selected" : "" %>
+                    >
+                        Remote
+                    </option>
+
+                    <option
+                        value="Hybrid"
+                        <%= job.jobType === "Hybrid" ? "selected" : "" %>
+                    >
+                        Hybrid
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="openingDate">
+                    Opening Date
+                </label>
+
+                <input
+                    type="date"
+                    id="openingDate"
+                    name="openingDate"
+                    value="<%= job.openingDate ? job.openingDate.toISOString().split('T')[0] : '' %>"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="closingDate">
+                    Closing Date
+                </label>
+
+                <input
+                    type="date"
+                    id="closingDate"
+                    name="closingDate"
+                    value="<%= job.closingDate ? job.closingDate.toISOString().split('T')[0] : '' %>"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="eligibility">
+                Eligibility
+            </label>
+
+            <textarea
+                id="eligibility"
+                name="eligibility"
+                rows="3"
+            ><%= job.eligibility || '' %></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="status">
+                Status
+            </label>
+
+            <select
+                id="status"
+                name="status"
+            >
+
+                <option
+                    value="Not Applied"
+                    <%= job.status === "Not Applied" ? "selected" : "" %>
+                >
+                    Not Applied
+                </option>
+
+                <option
+                    value="Applied"
+                    <%= job.status === "Applied" ? "selected" : "" %>
+                >
+                    Applied
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="link">
+                Application Link
+            </label>
+
+            <input
+                type="url"
+                id="link"
+                name="link"
+                value="<%= job.link || '' %>"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="remarks">
+                Remarks
+            </label>
+
+            <textarea
+                id="remarks"
+                name="remarks"
+                rows="4"
+            ><%= job.remarks || '' %></textarea>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <a
+                href="/jobs"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Update Job
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+<%- include("../partials/footer") %>

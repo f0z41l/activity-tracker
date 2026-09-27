@@ -1,0 +1,300 @@
+<%- include("../partials/header", { title: "Edit University" }) %>
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Edit Master's University</h1>
+
+        <p>
+            Update the details of this master's program.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="content-card">
+
+    <form
+        action="/universities/edit/<%= university._id %>"
+        method="POST"
+        class="internship-form"
+    >
+
+        <div class="form-group">
+
+            <label for="universityName">
+                University Name
+            </label>
+
+            <input
+                type="text"
+                id="universityName"
+                name="universityName"
+                value="<%= university.universityName %>"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="programName">
+                Program Name
+            </label>
+
+            <input
+                type="text"
+                id="programName"
+                name="programName"
+                value="<%= university.programName %>"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="country">
+                    Country
+                </label>
+
+                <input
+                    type="text"
+                    id="country"
+                    name="country"
+                    value="<%= university.country %>"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="city">
+                    City
+                </label>
+
+                <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    value="<%= university.city || '' %>"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="degree">
+                Degree
+            </label>
+
+            <input
+                type="text"
+                id="degree"
+                name="degree"
+                value="<%= university.degree || '' %>"
+            >
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="openingDate">
+                    Opening Date
+                </label>
+
+                <input
+                    type="date"
+                    id="openingDate"
+                    name="openingDate"
+                    value="<%= university.openingDate ? university.openingDate.toISOString().split('T')[0] : '' %>"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="closingDate">
+                    Closing Date
+                </label>
+
+                <input
+                    type="date"
+                    id="closingDate"
+                    name="closingDate"
+                    value="<%= university.closingDate ? university.closingDate.toISOString().split('T')[0] : '' %>"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="eligibility">
+                Eligibility
+            </label>
+
+            <textarea
+                id="eligibility"
+                name="eligibility"
+                rows="3"
+            ><%= university.eligibility || '' %></textarea>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="tuitionFee">
+                    Tuition Fee
+                </label>
+
+                <input
+                    type="text"
+                    id="tuitionFee"
+                    name="tuitionFee"
+                    value="<%= university.tuitionFee || '' %>"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="applicationFee">
+                    Application Fee
+                </label>
+
+                <input
+                    type="text"
+                    id="applicationFee"
+                    name="applicationFee"
+                    value="<%= university.applicationFee || '' %>"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="languageRequirement">
+                Language Requirement
+            </label>
+
+            <input
+                type="text"
+                id="languageRequirement"
+                name="languageRequirement"
+                value="<%= university.languageRequirement || '' %>"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="status">
+                Status
+            </label>
+
+            <select
+                id="status"
+                name="status"
+            >
+
+                <option
+                    value="Not Applied"
+                    <%= university.status === "Not Applied" ? "selected" : "" %>
+                >
+                    Not Applied
+                </option>
+
+                <option
+                    value="Applied"
+                    <%= university.status === "Applied" ? "selected" : "" %>
+                >
+                    Applied
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="link">
+                Application Link
+            </label>
+
+            <input
+                type="url"
+                id="link"
+                name="link"
+                value="<%= university.link || '' %>"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="remarks">
+                Remarks
+            </label>
+
+            <textarea
+                id="remarks"
+                name="remarks"
+                rows="4"
+            ><%= university.remarks || '' %></textarea>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <a
+                href="/universities"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Update University
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+<%- include("../partials/footer") %>

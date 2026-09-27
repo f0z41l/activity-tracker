@@ -1,0 +1,228 @@
+<%- include("../partials/header", { title: "Edit Scholarship" }) %>
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Edit Scholarship</h1>
+
+        <p>
+            Update the details of this scholarship opportunity.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="content-card">
+
+    <form
+        action="/scholarships/edit/<%= scholarship._id %>"
+        method="POST"
+        class="internship-form"
+    >
+
+        <div class="form-group">
+
+            <label for="name">
+                Scholarship Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                value="<%= scholarship.name %>"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="provider">
+                Provider
+            </label>
+
+            <input
+                type="text"
+                id="provider"
+                name="provider"
+                value="<%= scholarship.provider %>"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="country">
+                Country
+            </label>
+
+            <input
+                type="text"
+                id="country"
+                name="country"
+                value="<%= scholarship.country %>"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="openingDate">
+                    Opening Date
+                </label>
+
+                <input
+                    type="date"
+                    id="openingDate"
+                    name="openingDate"
+                    value="<%= scholarship.openingDate ? scholarship.openingDate.toISOString().split('T')[0] : '' %>"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="closingDate">
+                    Closing Date
+                </label>
+
+                <input
+                    type="date"
+                    id="closingDate"
+                    name="closingDate"
+                    value="<%= scholarship.closingDate ? scholarship.closingDate.toISOString().split('T')[0] : '' %>"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="eligibility">
+                Eligibility
+            </label>
+
+            <textarea
+                id="eligibility"
+                name="eligibility"
+                rows="3"
+            ><%= scholarship.eligibility || '' %></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="funding">
+                Funding
+            </label>
+
+            <input
+                type="text"
+                id="funding"
+                name="funding"
+                value="<%= scholarship.funding || '' %>"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="status">
+                Status
+            </label>
+
+            <select
+                id="status"
+                name="status"
+            >
+
+                <option
+                    value="Not Applied"
+                    <%= scholarship.status === "Not Applied" ? "selected" : "" %>
+                >
+                    Not Applied
+                </option>
+
+                <option
+                    value="Applied"
+                    <%= scholarship.status === "Applied" ? "selected" : "" %>
+                >
+                    Applied
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="link">
+                Application Link
+            </label>
+
+            <input
+                type="url"
+                id="link"
+                name="link"
+                value="<%= scholarship.link || '' %>"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="remarks">
+                Remarks
+            </label>
+
+            <textarea
+                id="remarks"
+                name="remarks"
+                rows="4"
+            ><%= scholarship.remarks || '' %></textarea>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <a
+                href="/scholarships"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Update Scholarship
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+<%- include("../partials/footer") %>

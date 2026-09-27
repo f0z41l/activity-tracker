@@ -1,0 +1,256 @@
+<%- include("../partials/header", { title: "To-Do List" }) %>
+
+<div class="page-header">
+
+    <div>
+
+        <h1>To-Do List</h1>
+
+        <p>
+            Manage your personal tasks and deadlines.
+        </p>
+
+    </div>
+
+    <a
+        href="/tasks/add"
+        class="btn btn-primary"
+    >
+        + Add Task
+    </a>
+
+</div>
+
+
+<div class="content-card">
+
+
+    <!-- SEARCH AND FILTERS -->
+
+    <div class="search-bar">
+
+        <form
+            action="/tasks"
+            method="GET"
+        >
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search tasks..."
+                value="<%= search %>"
+            >
+
+
+            <select name="status">
+
+                <option value="">
+                    All Status
+                </option>
+
+                <option
+                    value="Pending"
+                    <%= status === "Pending" ? "selected" : "" %>
+                >
+                    Pending
+                </option>
+
+                <option
+                    value="Completed"
+                    <%= status === "Completed" ? "selected" : "" %>
+                >
+                    Completed
+                </option>
+
+            </select>
+
+
+            <select name="priority">
+
+                <option value="">
+                    All Priorities
+                </option>
+
+                <option
+                    value="High"
+                    <%= priority === "High" ? "selected" : "" %>
+                >
+                    High
+                </option>
+
+                <option
+                    value="Medium"
+                    <%= priority === "Medium" ? "selected" : "" %>
+                >
+                    Medium
+                </option>
+
+                <option
+                    value="Low"
+                    <%= priority === "Low" ? "selected" : "" %>
+                >
+                    Low
+                </option>
+
+            </select>
+
+
+            <select name="sort">
+
+                <option value="">
+                    Due Date: Earliest
+                </option>
+
+                <option
+                    value="latest"
+                    <%= sort === "latest" ? "selected" : "" %>
+                >
+                    Due Date: Latest
+                </option>
+
+                <option
+                    value="createdLatest"
+                    <%= sort === "createdLatest" ? "selected" : "" %>
+                >
+                    Recently Added
+                </option>
+
+                <option
+                    value="createdOldest"
+                    <%= sort === "createdOldest" ? "selected" : "" %>
+                >
+                    Oldest Added
+                </option>
+
+            </select>
+
+
+            <button
+                type="submit"
+                class="btn btn-secondary"
+            >
+                Filter
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <% if (tasks.length === 0) { %>
+
+        <div class="empty-state">
+
+            <h2>No tasks found</h2>
+
+            <p>
+                Add a task to start managing your to-do list.
+            </p>
+
+        </div>
+
+    <% } else { %>
+
+
+        <div class="task-list">
+
+            <% tasks.forEach(task => { %>
+
+                <div class="task-card">
+
+                    <div class="task-main">
+
+                        <h2 class="<%= task.status === 'Completed' ? 'task-completed' : '' %>">
+
+                            <%= task.title %>
+
+                        </h2>
+
+
+                        <% if (task.category) { %>
+
+                            <p class="task-category">
+                                Category: <%= task.category %>
+                            </p>
+
+                        <% } %>
+
+
+                        <% if (task.dueDate) { %>
+
+                            <p>
+                                Due:
+                                <%= new Date(task.dueDate).toLocaleDateString() %>
+                            </p>
+
+                        <% } %>
+
+
+                        <% if (task.remarks) { %>
+
+                            <p class="task-remarks">
+                                <%= task.remarks %>
+                            </p>
+
+                        <% } %>
+
+                    </div>
+
+
+                    <div class="task-info">
+
+                        <span class="task-priority <%= task.priority.toLowerCase() %>">
+
+                            <%= task.priority %>
+
+                        </span>
+
+
+                        <span class="status-badge">
+
+                            <%= task.status %>
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-actions">
+
+                        <a
+                            href="/tasks/edit/<%= task._id %>"
+                            class="btn btn-secondary"
+                        >
+                            Edit
+                        </a>
+
+
+                        <form
+                            action="/tasks/delete/<%= task._id %>"
+                            method="POST"
+                        >
+
+                            <button
+                                type="submit"
+                                class="btn btn-danger"
+                                onclick="return confirm('Delete this task?')"
+                            >
+                                Delete
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
+
+    <% } %>
+
+</div>
+
+<%- include("../partials/footer") %>

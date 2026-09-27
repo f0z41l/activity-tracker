@@ -1,0 +1,294 @@
+<%- include("../partials/header", { title: "Add University" }) %>
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Add Master's University</h1>
+
+        <p>
+            Add a new master's program to your tracker.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="content-card">
+
+    <form
+        action="/universities/add"
+        method="POST"
+        class="internship-form"
+    >
+
+        <div class="form-group">
+
+            <label for="universityName">
+                University Name
+            </label>
+
+            <input
+                type="text"
+                id="universityName"
+                name="universityName"
+                placeholder="e.g. Technical University of Munich"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="programName">
+                Program Name
+            </label>
+
+            <input
+                type="text"
+                id="programName"
+                name="programName"
+                placeholder="e.g. M.Sc. Computer Science"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="country">
+                    Country
+                </label>
+
+                <input
+                    type="text"
+                    id="country"
+                    name="country"
+                    placeholder="e.g. Germany"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="city">
+                    City
+                </label>
+
+                <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    placeholder="e.g. Munich"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="degree">
+                Degree
+            </label>
+
+            <input
+                type="text"
+                id="degree"
+                name="degree"
+                placeholder="e.g. Master of Science"
+            >
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="openingDate">
+                    Opening Date
+                </label>
+
+                <input
+                    type="date"
+                    id="openingDate"
+                    name="openingDate"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="closingDate">
+                    Closing Date
+                </label>
+
+                <input
+                    type="date"
+                    id="closingDate"
+                    name="closingDate"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="eligibility">
+                Eligibility
+            </label>
+
+            <textarea
+                id="eligibility"
+                name="eligibility"
+                rows="3"
+                placeholder="e.g. Bachelor's degree in Computer Science"
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="tuitionFee">
+                    Tuition Fee
+                </label>
+
+                <input
+                    type="text"
+                    id="tuitionFee"
+                    name="tuitionFee"
+                    placeholder="e.g. €1,500 per semester"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="applicationFee">
+                    Application Fee
+                </label>
+
+                <input
+                    type="text"
+                    id="applicationFee"
+                    name="applicationFee"
+                    placeholder="e.g. €75"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="languageRequirement">
+                Language Requirement
+            </label>
+
+            <input
+                type="text"
+                id="languageRequirement"
+                name="languageRequirement"
+                placeholder="e.g. IELTS 6.5 / German B2"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="status">
+                Status
+            </label>
+
+            <select
+                id="status"
+                name="status"
+            >
+
+                <option value="Not Applied">
+                    Not Applied
+                </option>
+
+                <option value="Applied">
+                    Applied
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="link">
+                Application Link
+            </label>
+
+            <input
+                type="url"
+                id="link"
+                name="link"
+                placeholder="https://example.com"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="remarks">
+                Remarks
+            </label>
+
+            <textarea
+                id="remarks"
+                name="remarks"
+                rows="4"
+                placeholder="Any additional information..."
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <a
+                href="/universities"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Save University
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+<%- include("../partials/footer") %>
