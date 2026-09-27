@@ -209,6 +209,36 @@ router.post("/add", async (req, res) => {
 
 });
 
+// ========================================
+// VIEW UNIVERSITY
+// ========================================
+
+router.get("/view/:id", async (req, res) => {
+
+    try {
+
+        const university = await University.findById(
+            req.params.id
+        );
+
+        if (!university) {
+            return res.status(404).send("University not found");
+        }
+
+        res.render("universities/view", {
+            university,
+            title: "University Details"
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).send("Error loading university");
+
+    }
+
+});
 
 // ========================================
 // EDIT PAGE

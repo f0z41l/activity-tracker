@@ -16,7 +16,8 @@
         href="/jobs/add"
         class="btn btn-primary"
     >
-        + Add Job
+        <i data-lucide="plus"></i>
+        <span>Add Job</span>
     </a>
 
 </div>
@@ -93,7 +94,7 @@
             <option
                 value="closingSoon"
                 <%= deadline === "closingSoon" ? "selected" : "" %>
-                >
+            >
                 Closing Soon
             </option>
 
@@ -130,7 +131,8 @@
             type="submit"
             class="btn btn-primary"
         >
-            Search
+            <i data-lucide="search"></i>
+            <span>Search</span>
         </button>
 
     </form>
@@ -154,7 +156,8 @@
                 href="/jobs/add"
                 class="btn btn-primary"
             >
-                Add Job
+                <i data-lucide="plus"></i>
+                <span>Add Job</span>
             </a>
 
         </div>
@@ -173,23 +176,37 @@
                             <%= job.position %>
                         </h2>
 
+
                         <p class="company">
                             <%= job.company %>
                         </p>
 
-                        <p>
-                            🌍 <%= job.country %>
-                            <% if (job.city) { %>
-                                — <%= job.city %>
-                            <% } %>
-                        </p>
 
                         <p>
-                            💼 <%= job.jobType || "Not specified" %>
+                            <i data-lucide="globe-2"></i>
+                            <span>
+                                <%= job.country %>
+
+                                <% if (job.city) { %>
+                                    - <%= job.city %>
+                                <% } %>
+                            </span>
                         </p>
 
+
                         <p>
-                            💰 <%= job.salary || "Not specified" %>
+                            <i data-lucide="briefcase-business"></i>
+                            <span>
+                                <%= job.jobType || "Not specified" %>
+                            </span>
+                        </p>
+
+
+                        <p>
+                            <i data-lucide="badge-dollar-sign"></i>
+                            <span>
+                                <%= job.salary || "Not specified" %>
+                            </span>
                         </p>
 
                     </div>
@@ -199,7 +216,10 @@
 
                         <p>
 
-                            <strong>Deadline:</strong>
+                            <strong>
+                                <i data-lucide="calendar-days"></i>
+                                Deadline:
+                            </strong>
 
                             <% if (job.closingDate) { %>
 
@@ -207,7 +227,6 @@
 
                                 <%
                                     const today = new Date();
-
                                     today.setHours(0, 0, 0, 0);
 
                                     const deadlineDate =
@@ -222,22 +241,26 @@
                                         );
                                 %>
 
+
                                 <% if (difference < 0) { %>
 
                                     <span class="deadline-badge expired">
-                                        Expired
+                                        <i data-lucide="circle-alert"></i>
+                                        <span>Expired</span>
                                     </span>
 
                                 <% } else if (difference <= 7) { %>
 
                                     <span class="deadline-badge soon">
-                                        Closing Soon
+                                        <i data-lucide="clock-3"></i>
+                                        <span>Closing Soon</span>
                                     </span>
 
                                 <% } else { %>
 
                                     <span class="deadline-badge open">
-                                        Open
+                                        <i data-lucide="check-circle-2"></i>
+                                        <span>Open</span>
                                     </span>
 
                                 <% } %>
@@ -253,7 +276,10 @@
 
                         <p>
 
-                            <strong>Status:</strong>
+                            <strong>
+                                <i data-lucide="circle-check"></i>
+                                Status:
+                            </strong>
 
                             <span class="status-badge">
                                 <%= job.status %>
@@ -267,11 +293,21 @@
                     <div class="card-actions">
 
                         <a
+                            href="/jobs/view/<%= job._id %>"
+                        >
+                            <i data-lucide="eye"></i>
+                            <span>View</span>
+                        </a>
+
+
+                        <a
                             href="/jobs/edit/<%= job._id %>"
                             class="btn btn-secondary"
                         >
-                            Edit
+                            <i data-lucide="pencil"></i>
+                            <span>Edit</span>
                         </a>
+
 
                         <form
                             action="/jobs/delete/<%= job._id %>"
@@ -283,7 +319,8 @@
                                 class="btn btn-danger"
                                 onclick="return confirm('Are you sure you want to delete this job?')"
                             >
-                                Delete
+                                <i data-lucide="trash-2"></i>
+                                <span>Delete</span>
                             </button>
 
                         </form>

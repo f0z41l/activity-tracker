@@ -1,6 +1,4 @@
-
-</body><%- include("partials/header", { title: "Dashboard" }) %>
-
+<%- include("partials/header", { title: "Dashboard" }) %>
 
 <!-- ========================================
      DASHBOARD HEADER
@@ -8,18 +6,19 @@
 
 <div class="page-header">
 
-    <div>
 
-        <h1>Dashboard</h1>
+<div>
 
-        <p>
-            Overview of your career opportunities and personal tasks.
-        </p>
+    <h1>Dashboard</h1>
 
-    </div>
+    <p>
+        Overview of your career opportunities and personal tasks.
+    </p>
 
 </div>
 
+
+</div>
 
 <!-- ========================================
      STATISTICS
@@ -27,212 +26,223 @@
 
 <div class="dashboard-stats">
 
-    <!-- Internships -->
 
-    <div class="stat-card">
+<!-- Internships -->
 
-        <div class="stat-card-top">
+<div class="stat-card">
 
-            <div class="stat-icon">
-                🎓
-            </div>
+    <div class="stat-card-top">
 
-            <div>
-                <p>Internships</p>
-
-                <h2>
-                    <%= internshipCount %>
-                </h2>
-            </div>
-
+        <div class="stat-icon">
+            <i data-lucide="briefcase-business"></i>
         </div>
 
-        <div class="stat-details">
+        <div>
 
-            <span>
-                Applied
-                <strong><%= internshipApplied %></strong>
-            </span>
+            <p>Internships</p>
 
-            <span>
-                Not Applied
-                <strong><%= internshipNotApplied %></strong>
-            </span>
+            <h2>
+                <%= internshipCount %>
+            </h2>
 
         </div>
-
-        <a href="/internships">
-            View Internships →
-        </a>
 
     </div>
 
+    <div class="stat-details">
 
-    <!-- Scholarships -->
+        <span>
+            Applied
+            <strong><%= internshipApplied %></strong>
+        </span>
 
-    <div class="stat-card">
-
-        <div class="stat-card-top">
-
-            <div class="stat-icon">
-                🏆
-            </div>
-
-            <div>
-                <p>Scholarships</p>
-
-                <h2>
-                    <%= scholarshipCount %>
-                </h2>
-            </div>
-
-        </div>
-
-        <div class="stat-details">
-
-            <span>
-                Applied
-                <strong><%= scholarshipApplied %></strong>
-            </span>
-
-            <span>
-                Not Applied
-                <strong><%= scholarshipNotApplied %></strong>
-            </span>
-
-        </div>
-
-        <a href="/scholarships">
-            View Scholarships →
-        </a>
+        <span>
+            Not Applied
+            <strong><%= internshipNotApplied %></strong>
+        </span>
 
     </div>
 
-
-    <!-- Universities -->
-
-    <div class="stat-card">
-
-        <div class="stat-card-top">
-
-            <div class="stat-icon">
-                🏫
-            </div>
-
-            <div>
-                <p>Universities</p>
-
-                <h2>
-                    <%= universityCount %>
-                </h2>
-            </div>
-
-        </div>
-
-        <div class="stat-details">
-
-            <span>
-                Applied
-                <strong><%= universityApplied %></strong>
-            </span>
-
-            <span>
-                Not Applied
-                <strong><%= universityNotApplied %></strong>
-            </span>
-
-        </div>
-
-        <a href="/universities">
-            View Universities →
-        </a>
-
-    </div>
-
-
-    <!-- Jobs -->
-
-    <div class="stat-card">
-
-        <div class="stat-card-top">
-
-            <div class="stat-icon">
-                💼
-            </div>
-
-            <div>
-                <p>Jobs</p>
-
-                <h2>
-                    <%= jobCount %>
-                </h2>
-            </div>
-
-        </div>
-
-        <div class="stat-details">
-
-            <span>
-                Applied
-                <strong><%= jobApplied %></strong>
-            </span>
-
-            <span>
-                Not Applied
-                <strong><%= jobNotApplied %></strong>
-            </span>
-
-        </div>
-
-        <a href="/jobs">
-            View Jobs →
-        </a>
-
-    </div>
-
-
-    <!-- Tasks -->
-
-    <div class="stat-card">
-
-        <div class="stat-card-top">
-
-            <div class="stat-icon">
-                ✅
-            </div>
-
-            <div>
-                <p>Tasks</p>
-
-                <h2>
-                    <%= taskCount %>
-                </h2>
-            </div>
-
-        </div>
-
-        <div class="stat-details">
-
-            <span>
-                Pending
-                <strong><%= pendingTaskCount %></strong>
-            </span>
-
-            <span>
-                Completed
-                <strong><%= completedTaskCount %></strong>
-            </span>
-
-        </div>
-
-        <a href="/tasks">
-            View Tasks →
-        </a>
-
-    </div>
+    <a href="/internships">
+        View Internships →
+    </a>
 
 </div>
 
+
+<!-- Scholarships -->
+
+<div class="stat-card">
+
+    <div class="stat-card-top">
+
+        <div class="stat-icon">
+            <i data-lucide="award"></i>
+        </div>
+
+        <div>
+
+            <p>Scholarships</p>
+
+            <h2>
+                <%= scholarshipCount %>
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="stat-details">
+
+        <span>
+            Applied
+            <strong><%= scholarshipApplied %></strong>
+        </span>
+
+        <span>
+            Not Applied
+            <strong><%= scholarshipNotApplied %></strong>
+        </span>
+
+    </div>
+
+    <a href="/scholarships">
+        View Scholarships →
+    </a>
+
+</div>
+
+
+<!-- Universities -->
+
+<div class="stat-card">
+
+    <div class="stat-card-top">
+
+        <div class="stat-icon">
+            <i data-lucide="university"></i>
+        </div>
+
+        <div>
+
+            <p>Universities</p>
+
+            <h2>
+                <%= universityCount %>
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="stat-details">
+
+        <span>
+            Applied
+            <strong><%= universityApplied %></strong>
+        </span>
+
+        <span>
+            Not Applied
+            <strong><%= universityNotApplied %></strong>
+        </span>
+
+    </div>
+
+    <a href="/universities">
+        View Universities →
+    </a>
+
+</div>
+
+
+<!-- Jobs -->
+
+<div class="stat-card">
+
+    <div class="stat-card-top">
+
+        <div class="stat-icon">
+            <i data-lucide="briefcase"></i>
+        </div>
+
+        <div>
+
+            <p>Jobs</p>
+
+            <h2>
+                <%= jobCount %>
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="stat-details">
+
+        <span>
+            Applied
+            <strong><%= jobApplied %></strong>
+        </span>
+
+        <span>
+            Not Applied
+            <strong><%= jobNotApplied %></strong>
+        </span>
+
+    </div>
+
+    <a href="/jobs">
+        View Jobs →
+    </a>
+
+</div>
+
+
+<!-- Tasks -->
+
+<div class="stat-card">
+
+    <div class="stat-card-top">
+
+        <div class="stat-icon">
+            <i data-lucide="list-checks"></i>
+        </div>
+
+        <div>
+
+            <p>Tasks</p>
+
+            <h2>
+                <%= taskCount %>
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="stat-details">
+
+        <span>
+            Pending
+            <strong><%= pendingTaskCount %></strong>
+        </span>
+
+        <span>
+            Completed
+            <strong><%= completedTaskCount %></strong>
+        </span>
+
+    </div>
+
+    <a href="/tasks">
+        View Tasks →
+    </a>
+
+</div>
+
+
+</div>
 
 <!-- ========================================
      TASK PROGRESS
@@ -241,133 +251,137 @@
 <div class="dashboard-grid">
 
 
-    <div class="dashboard-card">
+<div class="dashboard-card">
 
-        <div class="dashboard-card-header">
+    <div class="dashboard-card-header">
+
+        <div>
+
+            <h2>Task Progress</h2>
+
+            <p>
+                Your current task status.
+            </p>
+
+        </div>
+
+        <a
+            href="/tasks"
+            class="btn btn-secondary"
+        >
+            View Tasks
+        </a>
+
+    </div>
+
+
+    <div class="task-progress">
+
+
+        <div class="progress-item">
 
             <div>
 
-                <h2>Task Progress</h2>
+                <span>Pending</span>
 
-                <p>
-                    Your current task status.
-                </p>
+                <strong>
+                    <%= pendingTaskCount %>
+                </strong>
 
             </div>
-
-            <a
-                href="/tasks"
-                class="btn btn-secondary"
-            >
-                View Tasks
-            </a>
 
         </div>
 
 
-        <div class="task-progress">
+        <div class="progress-item">
 
+            <div>
 
-            <div class="progress-item">
+                <span>Completed</span>
 
-                <div>
-
-                    <span>Pending</span>
-
-                    <strong>
-                        <%= pendingTaskCount %>
-                    </strong>
-
-                </div>
+                <strong>
+                    <%= completedTaskCount %>
+                </strong>
 
             </div>
 
+        </div>
 
-            <div class="progress-item">
 
-                <div>
+    </div>
 
-                    <span>Completed</span>
+</div>
 
-                    <strong>
-                        <%= completedTaskCount %>
-                    </strong>
+<!-- ========================================
+     QUICK ACTIONS
+======================================== -->
 
-                </div>
+<div class="dashboard-card">
 
-            </div>
+    <div class="dashboard-card-header">
 
+        <div>
+
+            <h2>Quick Actions</h2>
+
+            <p>
+                Add a new opportunity or task.
+            </p>
 
         </div>
 
     </div>
 
 
-    <!-- ========================================
-         QUICK ACTIONS
-    ======================================== -->
+    <div class="quick-actions">
 
-    <div class="dashboard-card">
-
-        <div class="dashboard-card-header">
-
-            <div>
-
-                <h2>Quick Actions</h2>
-
-                <p>
-                    Add a new opportunity or task.
-                </p>
-
-            </div>
-
-        </div>
+        <a
+            href="/internships/add"
+            class="quick-action"
+        >
+            <i data-lucide="plus"></i>
+            <span>Add Internship</span>
+        </a>
 
 
-        <div class="quick-actions">
-
-            <a
-                href="/internships/add"
-                class="quick-action"
-            >
-                🎓 Add Internship
-            </a>
-
-
-            <a
-                href="/scholarships/add"
-                class="quick-action"
-            >
-                🏆 Add Scholarship
-            </a>
+        <a
+            href="/scholarships/add"
+            class="quick-action"
+        >
+            <i data-lucide="plus"></i>
+            <span>Add Scholarship</span>
+        </a>
 
 
-            <a
-                href="/universities/add"
-                class="quick-action"
-            >
-                🏫 Add University
-            </a>
+        <a
+            href="/universities/add"
+            class="quick-action"
+        >
+            <i data-lucide="plus"></i>
+            <span>Add University</span>
+        </a>
 
 
-            <a
-                href="/jobs/add"
-                class="quick-action"
-            >
-                💼 Add Job
-            </a>
+        <a
+            href="/jobs/add"
+            class="quick-action"
+        >
+            <i data-lucide="plus"></i>
+            <span>Add Job</span>
+        </a>
 
 
-            <a
-                href="/tasks/add"
-                class="quick-action"
-            >
-                ✅ Add Task
-            </a>
-
-        </div>
+        <a
+            href="/tasks/add"
+            class="quick-action"
+        >
+            <i data-lucide="plus"></i>
+            <span>Add Task</span>
+        </a>
 
     </div>
+
+</div>
 
 
 </div>
@@ -378,118 +392,131 @@
 
 <div class="dashboard-card upcoming-card">
 
-    <div class="dashboard-card-header">
 
-        <div>
+<div class="dashboard-card-header">
 
-            <h2>Upcoming Deadlines</h2>
+    <div>
 
-            <p>
-                Your nearest application and task deadlines.
-            </p>
+        <h2>Upcoming Deadlines</h2>
 
-        </div>
+        <p>
+            Your nearest application and task deadlines.
+        </p>
+
+    </div>
+
+</div>
+
+
+<% if (upcomingDeadlines.length === 0) { %>
+
+    <div class="empty-state">
+
+        <h3>No upcoming deadlines</h3>
+
+        <p>
+            You currently have no upcoming deadlines.
+        </p>
 
     </div>
 
 
-    <% if (upcomingDeadlines.length === 0) { %>
-
-        <div class="empty-state">
-
-            <h3>No upcoming deadlines</h3>
-
-            <p>
-                You currently have no upcoming deadlines.
-            </p>
-
-        </div>
+<% } else { %>
 
 
-    <% } else { %>
+    <div class="deadline-list">
 
 
-        <div class="deadline-list">
+        <% upcomingDeadlines.forEach(item => { %>
+
+            <div class="dashboard-deadline">
 
 
-            <% upcomingDeadlines.forEach(item => { %>
+                <div class="deadline-main">
 
-                <div class="dashboard-deadline">
+                    <h3>
+                        <%= item.title %>
+                    </h3>
 
-
-                    <div class="deadline-main">
-
-                        <h3>
-                            <%= item.title %>
-                        </h3>
-
-                        <p>
-                            <%= item.organization %>
-                        </p>
-
-                    </div>
-
-
-                    <div class="deadline-type">
-
-                        <span class="status-badge">
-                            <%= item.type %>
-                        </span>
-
-                    </div>
-
-
-                    <div class="deadline-date">
-
-                        <strong>
-                            <%= new Date(item.date).toLocaleDateString() %>
-                        </strong>
-
-
-                        <% if (item.deadlineStatus) { %>
-
-                            <span class="deadline-reminder">
-
-                                <% if (item.deadlineStatus === "Due Today") { %>
-
-                                    🔴 Due Today
-
-                                <% } else if (item.deadlineStatus === "Due Soon") { %>
-
-                                    🟠 <%= item.daysLeft %>
-                                    day<%= item.daysLeft === 1 ? "" : "s" %> left
-
-                                <% } else if (item.deadlineStatus === "Upcoming") { %>
-
-                                    🟡 <%= item.daysLeft %> days left
-
-                                <% } else if (item.deadlineStatus === "Expired") { %>
-
-                                    🔴 Expired
-
-                                <% } %>
-
-                            </span>
-
-                        <% } %>
-
-
-                        <a href="<%= item.link %>">
-                            View
-                        </a>
-
-                    </div>
-
+                    <p>
+                        <%= item.organization %>
+                    </p>
 
                 </div>
 
-            <% }) %>
+
+                <div class="deadline-type">
+
+                    <span class="status-badge">
+                        <%= item.type %>
+                    </span>
+
+                </div>
 
 
-        </div>
+                <div class="deadline-date">
+
+                    <strong>
+                        <%= new Date(item.date).toLocaleDateString() %>
+                    </strong>
 
 
-    <% } %>
+                    <% if (item.deadlineStatus) { %>
+
+                        <span class="deadline-reminder">
+
+                            <% if (item.deadlineStatus === "Due Today") { %>
+
+                                <i data-lucide="circle-alert"></i>
+                                <span>Due Today</span>
+
+                            <% } else if (item.deadlineStatus === "Due Soon") { %>
+
+                                <i data-lucide="clock"></i>
+
+                                <span>
+                                    <%= item.daysLeft %>
+                                    day<%= item.daysLeft === 1 ? "" : "s" %> left
+                                </span>
+
+                            <% } else if (item.deadlineStatus === "Upcoming") { %>
+
+                                <i data-lucide="calendar-days"></i>
+
+                                <span>
+                                    <%= item.daysLeft %> days left
+                                </span>
+
+                            <% } else if (item.deadlineStatus === "Expired") { %>
+
+                                <i data-lucide="circle-alert"></i>
+                                <span>Expired</span>
+
+                            <% } %>
+
+                        </span>
+
+                    <% } %>
+
+
+                    <a href="<%= item.link %>">
+                        <i data-lucide="eye"></i>
+                        <span>View</span>
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        <% }) %>
+
+
+    </div>
+
+
+<% } %>
+
 
 </div>
 
@@ -499,92 +526,102 @@
 
 <div class="dashboard-card expired-card">
 
-    <div class="dashboard-card-header">
+<div class="dashboard-card-header">
 
-        <div>
+    <div>
 
-            <h2>Expired Opportunities</h2>
+        <h2>Expired Opportunities</h2>
 
-            <p>
-                Opportunities whose deadlines have already passed.
-            </p>
+        <p>
+            Opportunities whose deadlines have already passed.
+        </p>
 
-        </div>
+    </div>
+
+</div>
+
+
+<% if (expiredOpportunities.length === 0) { %>
+
+    <div class="empty-state">
+
+        <h3>No expired opportunities</h3>
+
+        <p>
+            You currently have no expired opportunities.
+        </p>
 
     </div>
 
 
-    <% if (expiredOpportunities.length === 0) { %>
-
-        <div class="empty-state">
-
-            <h3>No expired opportunities</h3>
-
-            <p>
-                You currently have no expired opportunities.
-            </p>
-
-        </div>
+<% } else { %>
 
 
-    <% } else { %>
+    <div class="deadline-list">
 
 
-        <div class="deadline-list">
+        <% expiredOpportunities.forEach(item => { %>
+
+            <div class="dashboard-deadline">
 
 
-            <% expiredOpportunities.forEach(item => { %>
+                <div class="deadline-main">
 
-                <div class="dashboard-deadline">
+                    <h3>
+                        <%= item.title %>
+                    </h3>
 
-
-                    <div class="deadline-main">
-
-                        <h3>
-                            <%= item.title %>
-                        </h3>
-
-                        <p>
-                            <%= item.organization %>
-                        </p>
-
-                    </div>
-
-
-                    <div class="deadline-type">
-
-                        <span class="status-badge">
-                            <%= item.type %>
-                        </span>
-
-                    </div>
-
-
-                    <div class="deadline-date">
-
-                        <strong>
-                            <%= new Date(item.date).toLocaleDateString() %>
-                        </strong>
-
-                        <span class="deadline-reminder expired">
-                            🔴 Expired
-                        </span>
-
-                        <a href="<%= item.link %>">
-                            View
-                        </a>
-
-                    </div>
-
+                    <p>
+                        <%= item.organization %>
+                    </p>
 
                 </div>
 
-            <% }) %>
+
+                <div class="deadline-type">
+
+                    <span class="status-badge">
+                        <%= item.type %>
+                    </span>
+
+                </div>
 
 
-        </div>
+                <div class="deadline-date">
+
+                    <strong>
+                        <%= new Date(item.date).toLocaleDateString() %>
+                    </strong>
 
 
-    <% } %>
+                    <span class="deadline-reminder expired">
+
+                        <i data-lucide="circle-alert"></i>
+                        <span>Expired</span>
+
+                    </span>
+
+
+                    <a href="<%= item.link %>">
+                        <i data-lucide="eye"></i>
+                        <span>View</span>
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        <% }) %>
+
+
+    </div>
+
+
+<% } %>
+
 
 </div>
+
+
+<%- include("partials/footer") %>

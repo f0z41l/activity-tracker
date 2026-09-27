@@ -16,14 +16,14 @@
         href="/tasks/add"
         class="btn btn-primary"
     >
-        + Add Task
+        <i data-lucide="plus"></i>
+        <span>Add Task</span>
     </a>
 
 </div>
 
 
 <div class="content-card">
-
 
     <!-- SEARCH AND FILTERS -->
 
@@ -129,7 +129,8 @@
                 type="submit"
                 class="btn btn-secondary"
             >
-                Filter
+                <i data-lucide="search"></i>
+                <span>Filter</span>
             </button>
 
         </form>
@@ -147,6 +148,14 @@
                 Add a task to start managing your to-do list.
             </p>
 
+            <a
+                href="/tasks/add"
+                class="btn btn-primary"
+            >
+                <i data-lucide="plus"></i>
+                <span>Add Task</span>
+            </a>
+
         </div>
 
     <% } else { %>
@@ -157,6 +166,7 @@
             <% tasks.forEach(task => { %>
 
                 <div class="task-card">
+
 
                     <div class="task-main">
 
@@ -170,7 +180,13 @@
                         <% if (task.category) { %>
 
                             <p class="task-category">
-                                Category: <%= task.category %>
+
+                                <i data-lucide="folder"></i>
+
+                                <span>
+                                    <%= task.category %>
+                                </span>
+
                             </p>
 
                         <% } %>
@@ -179,8 +195,14 @@
                         <% if (task.dueDate) { %>
 
                             <p>
-                                Due:
-                                <%= new Date(task.dueDate).toLocaleDateString() %>
+
+                                <i data-lucide="calendar-days"></i>
+
+                                <span>
+                                    Due:
+                                    <%= new Date(task.dueDate).toLocaleDateString() %>
+                                </span>
+
                             </p>
 
                         <% } %>
@@ -189,7 +211,13 @@
                         <% if (task.remarks) { %>
 
                             <p class="task-remarks">
-                                <%= task.remarks %>
+
+                                <i data-lucide="message-square-text"></i>
+
+                                <span>
+                                    <%= task.remarks %>
+                                </span>
+
                             </p>
 
                         <% } %>
@@ -201,14 +229,42 @@
 
                         <span class="task-priority <%= task.priority.toLowerCase() %>">
 
-                            <%= task.priority %>
+                            <% if (task.priority === "High") { %>
+
+                                <i data-lucide="circle-alert"></i>
+
+                            <% } else if (task.priority === "Medium") { %>
+
+                                <i data-lucide="clock-3"></i>
+
+                            <% } else { %>
+
+                                <i data-lucide="circle-check"></i>
+
+                            <% } %>
+
+                            <span>
+                                <%= task.priority %>
+                            </span>
 
                         </span>
 
 
                         <span class="status-badge">
 
-                            <%= task.status %>
+                            <% if (task.status === "Completed") { %>
+
+                                <i data-lucide="circle-check"></i>
+
+                            <% } else { %>
+
+                                <i data-lucide="circle"></i>
+
+                            <% } %>
+
+                            <span>
+                                <%= task.status %>
+                            </span>
 
                         </span>
 
@@ -221,7 +277,8 @@
                             href="/tasks/edit/<%= task._id %>"
                             class="btn btn-secondary"
                         >
-                            Edit
+                            <i data-lucide="pencil"></i>
+                            <span>Edit</span>
                         </a>
 
 
@@ -235,7 +292,8 @@
                                 class="btn btn-danger"
                                 onclick="return confirm('Delete this task?')"
                             >
-                                Delete
+                                <i data-lucide="trash-2"></i>
+                                <span>Delete</span>
                             </button>
 
                         </form>
@@ -252,5 +310,6 @@
     <% } %>
 
 </div>
+
 
 <%- include("../partials/footer") %>

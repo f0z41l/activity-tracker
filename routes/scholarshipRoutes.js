@@ -210,6 +210,36 @@ router.post("/add", async (req, res) => {
 
 });
 
+// ========================================
+// VIEW SCHOLARSHIP
+// ========================================
+
+router.get("/view/:id", async (req, res) => {
+
+    try {
+
+        const scholarship = await Scholarship.findById(
+            req.params.id
+        );
+
+        if (!scholarship) {
+            return res.status(404).send("Scholarship not found");
+        }
+
+        res.render("scholarships/view", {
+            scholarship,
+            title: "Scholarship Details"
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).send("Error loading scholarship");
+
+    }
+
+});
 
 // ========================================
 // EDIT SCHOLARSHIP PAGE

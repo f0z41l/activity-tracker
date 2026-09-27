@@ -1,0 +1,242 @@
+<%- include("../partials/header") %>
+
+<!-- ========================================
+     UNIVERSITY DETAILS
+======================================== -->
+
+<div class="page-header">
+
+    <div>
+
+        <h1>University Details</h1>
+
+        <p>
+            View all information about this university.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="details-card">
+
+    <div class="details-header">
+
+        <div>
+
+            <h2>
+                <%= university.programName %>
+            </h2>
+
+            <p>
+                <%= university.universityName %>
+            </p>
+
+        </div>
+
+        <span class="status-badge">
+            <%= university.status %>
+        </span>
+
+    </div>
+
+
+    <div class="details-grid">
+
+
+        <div class="detail-item">
+
+            <span>University</span>
+
+            <strong>
+                <%= university.universityName || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Program</span>
+
+            <strong>
+                <%= university.programName || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Country</span>
+
+            <strong>
+                <%= university.country || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>City</span>
+
+            <strong>
+                <%= university.city || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Degree</span>
+
+            <strong>
+                <%= university.degree || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Opening Date</span>
+
+            <strong>
+                <%= university.openingDate
+                    ? new Date(university.openingDate).toLocaleDateString()
+                    : "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Closing Date</span>
+
+            <strong>
+                <%= university.closingDate
+                    ? new Date(university.closingDate).toLocaleDateString()
+                    : "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Eligibility</span>
+
+            <strong>
+                <%= university.eligibility || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Tuition Fee</span>
+
+            <strong>
+                <%= university.tuitionFee || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Application Fee</span>
+
+            <strong>
+                <%= university.applicationFee || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Language Requirement</span>
+
+            <strong>
+                <%= university.languageRequirement || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Status</span>
+
+            <strong>
+                <%= university.status || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Link</span>
+
+            <% if (university.link) { %>
+
+                <a
+                    href="<%= university.link %>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visit Website
+                </a>
+
+            <% } else { %>
+
+                <strong>-</strong>
+
+            <% } %>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="detail-remarks">
+
+        <span>Remarks</span>
+
+        <p>
+            <%= university.remarks || "No remarks added." %>
+        </p>
+
+    </div>
+
+
+    <div class="details-actions">
+
+        <a
+            href="/universities/edit/<%= university._id %>"
+            class="btn-primary"
+        >
+            Edit University
+        </a>
+
+        <a
+            href="/universities"
+            class="btn-secondary"
+        >
+            Back to Universities
+        </a>
+
+    </div>
+
+</div>
+
+
+<%- include("../partials/footer") %>

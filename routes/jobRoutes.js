@@ -206,6 +206,36 @@ router.post("/add", async (req, res) => {
 
 });
 
+// ========================================
+// VIEW JOB
+// ========================================
+
+router.get("/view/:id", async (req, res) => {
+
+    try {
+
+        const job = await Job.findById(
+            req.params.id
+        );
+
+        if (!job) {
+            return res.status(404).send("Job not found");
+        }
+
+        res.render("jobs/view", {
+            job,
+            title: "Job Details"
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).send("Error loading job");
+
+    }
+
+});
 
 // ========================================
 // EDIT PAGE

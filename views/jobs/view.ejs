@@ -1,0 +1,220 @@
+<%- include("../partials/header") %>
+
+<!-- ========================================
+     JOB DETAILS
+======================================== -->
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Job Details</h1>
+
+        <p>
+            View all information about this job.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="details-card">
+
+    <div class="details-header">
+
+        <div>
+
+            <h2>
+                <%= job.position %>
+            </h2>
+
+            <p>
+                <%= job.company %>
+            </p>
+
+        </div>
+
+        <span class="status-badge">
+            <%= job.status %>
+        </span>
+
+    </div>
+
+
+    <div class="details-grid">
+
+
+        <div class="detail-item">
+
+            <span>Company</span>
+
+            <strong>
+                <%= job.company || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Position</span>
+
+            <strong>
+                <%= job.position || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Country</span>
+
+            <strong>
+                <%= job.country || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>City</span>
+
+            <strong>
+                <%= job.city || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Salary</span>
+
+            <strong>
+                <%= job.salary || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Job Type</span>
+
+            <strong>
+                <%= job.jobType || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Opening Date</span>
+
+            <strong>
+                <%= job.openingDate
+                    ? new Date(job.openingDate).toLocaleDateString()
+                    : "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Closing Date</span>
+
+            <strong>
+                <%= job.closingDate
+                    ? new Date(job.closingDate).toLocaleDateString()
+                    : "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Eligibility</span>
+
+            <strong>
+                <%= job.eligibility || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Status</span>
+
+            <strong>
+                <%= job.status || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Link</span>
+
+            <% if (job.link) { %>
+
+                <a
+                    href="<%= job.link %>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visit Website
+                </a>
+
+            <% } else { %>
+
+                <strong>-</strong>
+
+            <% } %>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="detail-remarks">
+
+        <span>Remarks</span>
+
+        <p>
+            <%= job.remarks || "No remarks added." %>
+        </p>
+
+    </div>
+
+
+    <div class="details-actions">
+
+        <a
+            href="/jobs/edit/<%= job._id %>"
+            class="btn-primary"
+        >
+            Edit Job
+        </a>
+
+        <a
+            href="/jobs"
+            class="btn-secondary"
+        >
+            Back to Jobs
+        </a>
+
+    </div>
+
+</div>
+
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,187 @@
+<%- include("../partials/header") %>
+
+<!-- ========================================
+     INTERNSHIP DETAILS
+======================================== -->
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Internship Details</h1>
+
+        <p>
+            View all information about this internship.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="details-card">
+
+    <div class="details-header">
+
+        <div>
+
+            <h2>
+                <%= internship.position %>
+            </h2>
+
+            <p>
+                <%= internship.company %>
+            </p>
+
+        </div>
+
+        <span class="status-badge">
+            <%= internship.status %>
+        </span>
+
+    </div>
+
+
+    <div class="details-grid">
+
+
+        <div class="detail-item">
+
+            <span>Company</span>
+
+            <strong>
+                <%= internship.company || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Position</span>
+
+            <strong>
+                <%= internship.position || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Country</span>
+
+            <strong>
+                <%= internship.country || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Opening Date</span>
+
+            <strong>
+                <%= internship.openingDate
+                    ? new Date(internship.openingDate).toLocaleDateString()
+                    : "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Closing Date</span>
+
+            <strong>
+                <%= internship.closingDate
+                    ? new Date(internship.closingDate).toLocaleDateString()
+                    : "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Eligibility</span>
+
+            <strong>
+                <%= internship.eligibility || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Status</span>
+
+            <strong>
+                <%= internship.status || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Link</span>
+
+            <% if (internship.link) { %>
+
+                <a
+                    href="<%= internship.link %>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visit Website
+                </a>
+
+            <% } else { %>
+
+                <strong>-</strong>
+
+            <% } %>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="detail-remarks">
+
+        <span>Remarks</span>
+
+        <p>
+            <%= internship.remarks || "No remarks added." %>
+        </p>
+
+    </div>
+
+
+    <div class="details-actions">
+
+        <a
+            href="/internships/edit/<%= internship._id %>"
+            class="btn-primary"
+        >
+            Edit Internship
+        </a>
+
+        <a
+            href="/internships"
+            class="btn-secondary"
+        >
+            Back to Internships
+        </a>
+
+    </div>
+
+</div>
+
+
+<%- include("../partials/footer") %>

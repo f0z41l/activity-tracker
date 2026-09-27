@@ -131,6 +131,37 @@ router.post("/add", async (req, res) => {
         res.status(500).send("Server Error");
     }
 });
+// ========================================
+// VIEW INTERNSHIP
+// ========================================
+
+router.get("/view/:id", async (req, res) => {
+
+    try {
+
+        const internship = await Internship.findById(
+            req.params.id
+        );
+
+        if (!internship) {
+            return res.status(404).send("Internship not found");
+        }
+
+        res.render("internships/view", {
+    internship,
+    title: "Internship Details"
+});
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).send("Error loading internship");
+
+    }
+
+});
+
 
 // Show edit internship form
 router.get("/edit/:id", async (req, res) => {

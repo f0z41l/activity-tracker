@@ -1,0 +1,198 @@
+<%- include("../partials/header") %>
+
+<!-- ========================================
+     SCHOLARSHIP DETAILS
+======================================== -->
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Scholarship Details</h1>
+
+        <p>
+            View all information about this scholarship.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="details-card">
+
+    <div class="details-header">
+
+        <div>
+
+            <h2>
+                <%= scholarship.name %>
+            </h2>
+
+            <p>
+                <%= scholarship.provider %>
+            </p>
+
+        </div>
+
+        <span class="status-badge">
+            <%= scholarship.status %>
+        </span>
+
+    </div>
+
+
+    <div class="details-grid">
+
+
+        <div class="detail-item">
+
+            <span>Scholarship Name</span>
+
+            <strong>
+                <%= scholarship.name || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Provider</span>
+
+            <strong>
+                <%= scholarship.provider || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Country</span>
+
+            <strong>
+                <%= scholarship.country || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Opening Date</span>
+
+            <strong>
+                <%= scholarship.openingDate
+                    ? new Date(scholarship.openingDate).toLocaleDateString()
+                    : "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Closing Date</span>
+
+            <strong>
+                <%= scholarship.closingDate
+                    ? new Date(scholarship.closingDate).toLocaleDateString()
+                    : "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Eligibility</span>
+
+            <strong>
+                <%= scholarship.eligibility || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Funding</span>
+
+            <strong>
+                <%= scholarship.funding || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Status</span>
+
+            <strong>
+                <%= scholarship.status || "-" %>
+            </strong>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span>Link</span>
+
+            <% if (scholarship.link) { %>
+
+                <a
+                    href="<%= scholarship.link %>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visit Website
+                </a>
+
+            <% } else { %>
+
+                <strong>-</strong>
+
+            <% } %>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="detail-remarks">
+
+        <span>Remarks</span>
+
+        <p>
+            <%= scholarship.remarks || "No remarks added." %>
+        </p>
+
+    </div>
+
+
+    <div class="details-actions">
+
+        <a
+            href="/scholarships/edit/<%= scholarship._id %>"
+            class="btn-primary"
+        >
+            Edit Scholarship
+        </a>
+
+        <a
+            href="/scholarships"
+            class="btn-secondary"
+        >
+            Back to Scholarships
+        </a>
+
+    </div>
+
+</div>
+
+
+<%- include("../partials/footer") %>
