@@ -240,7 +240,7 @@ const expiredJobs = await Job.find({
 
                 type: "Internship",
 
-                link: `/internships/edit/${item._id}`
+                link: `/internships/view/${item._id}`
 
             });
 
@@ -259,7 +259,7 @@ const expiredJobs = await Job.find({
 
                 type: "Scholarship",
 
-                link: `/scholarships/edit/${item._id}`
+                link: `/scholarships/view/${item._id}`
 
             });
 
@@ -278,7 +278,7 @@ const expiredJobs = await Job.find({
 
                 type: "University",
 
-                link: `/universities/edit/${item._id}`
+                link: `/universities/view/${item._id}`
 
             });
 
@@ -297,7 +297,7 @@ const expiredJobs = await Job.find({
 
                 type: "Job",
 
-                link: `/jobs/edit/${item._id}`
+                link: `/jobs/view/${item._id}`
 
             });
 
@@ -408,7 +408,7 @@ expiredInternships.forEach(item => {
 
         type: "Internship",
 
-        link: `/internships/edit/${item._id}`
+        link: `/internships/view/${item._id}`
 
     });
 
@@ -427,7 +427,7 @@ expiredScholarships.forEach(item => {
 
         type: "Scholarship",
 
-        link: `/scholarships/edit/${item._id}`
+        link: `/scholarships/view/${item._id}`
 
     });
 
@@ -446,7 +446,7 @@ expiredUniversities.forEach(item => {
 
         type: "University",
 
-        link: `/universities/edit/${item._id}`
+        link: `/universities/view/${item._id}`
 
     });
 
@@ -465,7 +465,7 @@ expiredJobs.forEach(item => {
 
         type: "Job",
 
-        link: `/jobs/edit/${item._id}`
+        link: `/jobs/view/${item._id}`
 
     });
 
@@ -542,3 +542,4 @@ mongoose.connect(process.env.MONGODB_URI)
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
+
